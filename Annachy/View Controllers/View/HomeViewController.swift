@@ -173,3 +173,7 @@ extension HomeViewController: UISearchResultsUpdating {
         viewModel.searchText = searchController.searchBar.text ?? ""
     }
 }
+
+
+
+
