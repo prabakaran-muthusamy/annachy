@@ -44,8 +44,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         categoryLabel.text = product.category.capitalized
         
         if let url = URL(string: product.image) {
-            productImageView.kf.setImage(with: url)
             productImageView.kf.indicatorType = .activity
+            productImageView.kf.setImage(with: url)
         }
         
         updateStarRating(product.rating.rate)
@@ -161,7 +161,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
                 productImageView.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 10),
                 productImageView.leadingAnchor.constraint(equalTo: baseView.leadingAnchor),
                 productImageView.trailingAnchor.constraint(equalTo: baseView.trailingAnchor),
-                productImageView.heightAnchor.constraint(equalToConstant: 90),
                 
                 productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 10),
                 productNameLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 12),
@@ -219,7 +218,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
                 addToCartButton.heightAnchor.constraint(equalToConstant: 30)])
         }
     }
-
+    
     override func updateConstraints() {
         if !hasSetupConstraints {
             setupConstraints()

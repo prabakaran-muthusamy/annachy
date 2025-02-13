@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
     private func refreshProducts() {
         viewModel.fetchProducts()
     }
-
+    
     // MARK: - API Implementations
     
     private func bindViewModel() {
@@ -82,7 +82,7 @@ class HomeViewController: UIViewController {
         
         let optionButton = UIBarButtonItem(image: UIImage(systemName: "square.grid.2x2"), style: .plain,
                                            target: self, action: #selector(optionButtonAction(sender:)))
-                
+        
         optionButton.tintColor = UIColor.appThemeColor
         
         navigationItem.rightBarButtonItems = [optionButton]
@@ -162,7 +162,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return isGridView ? UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
-                          : UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        : UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     }
 }
 
@@ -173,7 +173,3 @@ extension HomeViewController: UISearchResultsUpdating {
         viewModel.searchText = searchController.searchBar.text ?? ""
     }
 }
-
-
-
-

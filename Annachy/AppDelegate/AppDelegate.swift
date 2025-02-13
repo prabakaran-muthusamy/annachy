@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setForegroundColor(UIColor.appThemeColor)
         
         return true
     }

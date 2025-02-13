@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SVProgressHUD
 
 class ProductViewModel: ObservableObject {
     
@@ -31,8 +32,10 @@ class ProductViewModel: ObservableObject {
     }
     
     func fetchProducts() {
+        SVProgressHUD.show()
         guard let url = URL(string: "https://fakestoreapi.com/products") else {
             self.errorMessage = "Invalid URL"
+            SVProgressHUD.dismiss()
             return
         }
         
@@ -46,6 +49,7 @@ class ProductViewModel: ObservableObject {
             .decode(type: [ProductModel].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
+                SVProgressHUD.dismiss()
                 switch completion {
                 case .failure(let error):
                     self?.errorMessage = "Failed to fetch products: \(error.localizedDescription)"
